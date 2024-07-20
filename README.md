@@ -1,1 +1,1 @@
-AWS stuff for udacity
+AWS Projects
