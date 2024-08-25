@@ -1,1 +1,1 @@
-# This file is a image classifer that uses AWS instances and tools such as Sagemaker, Lambda, and Step Function.
+# This project is a image classifer that uses AWS instances and tools such as Sagemaker, Lambda, and Step Function.
