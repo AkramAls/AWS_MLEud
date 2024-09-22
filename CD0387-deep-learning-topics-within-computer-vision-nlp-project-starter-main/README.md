@@ -16,13 +16,13 @@ The data was uploaded to an S3 bucket through AWS S3 so that SageMaker has acces
 
 ## Hyperparameter Tuning
 I chose to use ResNet18 for since it seems light weight compared to the other ResNet models while having plenty of computational power to do the job for this "small" dataset. The hyperparameter tuning was performed using sctipt hyp.py, tuning the values for learning rate, batch size, and epochs used to train the model.
-'''
+```
 hyperparameter_ranges = {
     "lr": sagemaker.tuner.ContinuousParameter(0.001, 0.1),
     "batch-size": sagemaker.tuner.CategoricalParameter([16, 32, 64, 128, 256]),
     "epochs": sagemaker.tuner.IntegerParameter(2, 5)
 }
-'''
+```
 
 - Include a screenshot of completed training jobs
 ![Screenshot 2024-09-21 at 15-40-57 Training jobs Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/de7a71bf-688a-4f9c-b95e-2b342fe8a640)
