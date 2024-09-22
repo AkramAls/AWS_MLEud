@@ -25,6 +25,7 @@ hyperparameter_ranges = {
 ```
 The following shows images of the training jobs completed with Objective metric values, training durations for jobs, and log metrics:
 
+
 - Completed training jobs
 ![Screenshot 2024-09-21 at 15-40-57 Training jobs Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/de7a71bf-688a-4f9c-b95e-2b342fe8a640)
 
@@ -32,13 +33,10 @@ The following shows images of the training jobs completed with Objective metric 
 ![Screenshot 2024-09-21 at 15-42-21 pytorch-training-240921-1713 Hyperparameter tuning jobs Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/936e0e8a-d58f-4e43-8b5c-b09ee148a765)
 
 
+
 - Logs metrics during the training process
 ![Screenshot 2024-09-21 at 22-14-25 pytorch-training-2024-09-21-18-30-14-961 Training jobs Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/c56a1111-ef4a-4365-b3f5-3384c1f77280)
 
-
-- Results of the training job show that we have a testing accuracy of `77.0059880239521%` and a testing Loss of `0.849546788552564%`
-
-![Screenshot 2024-09-21 at 16-07-56 CloudWatch us-east-1](https://github.com/user-attachments/assets/3b8e0e52-3ff7-4f46-ba82-e10009c5599d)
 
 
 - The learning rate, batch size, and epochs were tuned and we retrieved the best hyperparameters from those jobs with a Batch size of `256` , a learning rate (lr) of `0.019652379348016058` and an epochs of `4`.
@@ -47,24 +45,30 @@ The following shows images of the training jobs completed with Objective metric 
 
 
 
+- Results of the final training job show that we have a testing accuracy of `77.0059880239521%` and a testing Loss of `0.849546788552564%`
+
+![Screenshot 2024-09-21 at 16-07-56 CloudWatch us-east-1](https://github.com/user-attachments/assets/3b8e0e52-3ff7-4f46-ba82-e10009c5599d)
+
+
 ## Debugging and Profiling
-**TODO**: Give an overview of how you performed model debugging and profiling in Sagemaker
+The model was perpared using the additional script ``train_model.py`` to debug using the best hyperparameters metrics and metrics that utilize a bit of the GPU while looking out for the gradient and overfitting.
 
 ### Results
-**TODO**: What are the results/insights did you get by profiling/debugging your model?
+
+The profiler html file was retived from this location and place into the repository. 
 
 ![Screenshot 2024-09-21 at 22-34-59 AWS_MLEud_CD0387-deep-learning-topics-within-computer-vision-nlp-project-starter-main_train_and_deploy ipynb at main · AkramAls_AWS_MLEud](https://github.com/user-attachments/assets/0813fd06-697c-440f-a11b-7dac5f551ede)
 
-The profiler html file was retived from this location and place in the dictory
+
+Looking at the graph, the learning parameters increase at frist then drops quickly and stagnates.
+
 ![Screenshot 2024-09-21 at 15-58-17 sagemaker-us-east-1-476045913561 - S3 bucket S3 us-east-1](https://github.com/user-attachments/assets/14685240-321a-4aea-b2ed-b21d97f848b2)
 
 [Uploading profiler-report.html…]()
 
 ## Model Deployment
 **TODO**: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+The model is implemented using a train_model script. With having predictor instance, we can invoke the endpoint by some predictions. The image below shows the endpoint in Sagemaker. 
 
-**TODO** Remember to provide a screenshot of the deployed active endpoint in Sagemaker.
 ![Screenshot 2024-09-21 at 16-08-53 Endpoint configuration Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/5ed2e4cf-0920-4a27-a470-2787a2fd9a45)
 
-## Standout Suggestions
-**TODO (Optional):** This is where you can provide information about any standout suggestions that you have attempted.
