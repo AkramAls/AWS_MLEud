@@ -15,7 +15,7 @@ The provided dataset is the dogbreed classification dataset which can be found i
 The data was uploaded to an S3 bucket through AWS S3 so that SageMaker has access to the data. 
 
 ## Hyperparameter Tuning
-I chose to use ResNet18 for since it seems light weight compared to the other ResNet models while having plenty of computational power to do the job for this "small" dataset. The hyperparameter tuning was performed using sctipt hyp.py, tuning the values for learning rate, batch size, and epochs used to train the model.
+I chose to use ResNet18 for since it seems light weight compared to the other ResNet models while having plenty of computational power to do the job for this "small" dataset. The hyperparameter tuning was performed using sctipt hyp.py, tuning the values for learning rate, batch size, and epochs used to train the model. The plan was to allow a flexable range to work with as the code below display the ranges of values used.
 ```
 hyperparameter_ranges = {
     "lr": sagemaker.tuner.ContinuousParameter(0.001, 0.1),
@@ -23,8 +23,8 @@ hyperparameter_ranges = {
     "epochs": sagemaker.tuner.IntegerParameter(2, 5)
 }
 ```
-
-- Include a screenshot of completed training jobs
+The following shows images of the training jobs completed with Objective metric values, training durations for jobs, and log metrics:
+- Completed training jobs
 ![Screenshot 2024-09-21 at 15-40-57 Training jobs Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/de7a71bf-688a-4f9c-b95e-2b342fe8a640)
 
 
@@ -35,6 +35,7 @@ hyperparameter_ranges = {
 
 - Tune at least two hyperparameters and Retrieved the best best hyperparameters from all your training jobs
 ![Screenshot 2024-09-21 at 15-54-57 pytorch-training-240921-1713 Hyperparameter tuning jobs Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/46b0c205-8cfb-4901-90f1-c5b7f3ff07e7)
+
 ![Screenshot 2024-09-21 at 16-07-56 CloudWatch us-east-1](https://github.com/user-attachments/assets/3b8e0e52-3ff7-4f46-ba82-e10009c5599d)
 
 
