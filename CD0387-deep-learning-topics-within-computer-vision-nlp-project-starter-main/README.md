@@ -38,8 +38,12 @@ I chose to use ResNet18 for since it seems light weight compared to the other Re
 **TODO**: What are the results/insights did you get by profiling/debugging your model?
 ![Screenshot 2024-09-21 at 15-58-17 sagemaker-us-east-1-476045913561 - S3 bucket S3 us-east-1](https://github.com/user-attachments/assets/14685240-321a-4aea-b2ed-b21d97f848b2)
 
+![Screenshot 2024-09-21 at 22-34-59 AWS_MLEud_CD0387-deep-learning-topics-within-computer-vision-nlp-project-starter-main_train_and_deploy ipynb at main · AkramAls_AWS_MLEud](https://github.com/user-attachments/assets/0813fd06-697c-440f-a11b-7dac5f551ede)
+
+
 **TODO** Remember to provide the profiler html/pdf file in your submission.
 
+[Uploading profiler-report.html…]()
 
 ## Model Deployment
 **TODO**: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
