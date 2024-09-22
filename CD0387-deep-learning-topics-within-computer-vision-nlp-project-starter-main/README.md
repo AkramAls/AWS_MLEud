@@ -33,10 +33,13 @@ The following shows images of the training jobs completed with Objective metric 
 - Logs metrics during the training process
 ![Screenshot 2024-09-21 at 22-14-25 pytorch-training-2024-09-21-18-30-14-961 Training jobs Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/c56a1111-ef4a-4365-b3f5-3384c1f77280)
 
-- Tune at least two hyperparameters and Retrieved the best best hyperparameters from all your training jobs
-![Screenshot 2024-09-21 at 15-54-57 pytorch-training-240921-1713 Hyperparameter tuning jobs Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/46b0c205-8cfb-4901-90f1-c5b7f3ff07e7)
+-Results of the training job show that we have a testing accuracy of 77.0059880239521% and a testing Loss of 0.849546788552564
 
 ![Screenshot 2024-09-21 at 16-07-56 CloudWatch us-east-1](https://github.com/user-attachments/assets/3b8e0e52-3ff7-4f46-ba82-e10009c5599d)
+
+- The learning rate, batch size, and epochs were tuned and we retrieved the best hyperparameters from those jobs with a Batch size of `256` , a learning rate (lr) of `0.019652379348016058` and an epochs of `4`.
+![Screenshot 2024-09-21 at 15-54-57 pytorch-training-240921-1713 Hyperparameter tuning jobs Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/46b0c205-8cfb-4901-90f1-c5b7f3ff07e7)
+
 
 
 ## Debugging and Profiling
