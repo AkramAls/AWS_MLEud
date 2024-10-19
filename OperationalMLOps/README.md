@@ -8,11 +8,11 @@ I'm using the default SageMaker instance ml.t3.medium when Notebook Instances ar
 S3 Bucket with the dataset
 ![Screenshot 2024-10-19 at 13-33-48 opmlimagebucket - S3 bucket S3 us-east-1](https://github.com/user-attachments/assets/5a37ff41-6f7d-4933-b6e7-8cbca4d3ce75)
 
-For tuning I used ml.m5.2xlarge for the greater processing power so that the tuning job and training jobs could be completed more quickly and to avoid memory issues I had experienced when working with this dataset in a previous project. For training instances, I set **instance_count=4** and kept most parameters the same.
+For tuning I used ml.m5.2xlarge for the greater processing power so that the tuning job and training jobs could be completed more quickly and to avoid memory issues I had experienced when working with this dataset in a previous project. For training instances, I set ``instance_count=4``and kept most parameters the same.
 
 I had some problems with AWS, which required me to start over. This time I was able to load the data to S3 and launch the endpoints. The single and multi endpoints can be found below.
 
-  Single instance trained endpoint: ###pytorch-inference-2024-10-19-19-00-50-543
+  Single instance trained endpoint: ``pytorch-inference-2024-10-19-19-00-50-543``
   
-  Multi instance trained endpoint: ###pytorch-inference-2024-10-19-19-22-45-799
+  Multi instance trained endpoint: ``pytorch-inference-2024-10-19-19-22-45-799``
 ![Screenshot 2024-10-19 at 15-28-40 Endpoints Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/d11aa842-0e8d-4891-861a-cd95bce2094f)
