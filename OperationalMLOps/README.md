@@ -12,7 +12,7 @@ For tuning I used ml.m5.2xlarge for the greater processing power so that the tun
 
 I had some problems with AWS, which required me to start over. This time I was able to load the data to S3 and launch the endpoints. The single and multi endpoints can be found below.
 
-  Single instance trained endpoint: **pytorch-inference-2024-10-19-19-00-50-543**
+  Single instance trained endpoint: ###pytorch-inference-2024-10-19-19-00-50-543###
   
-  Multi instance trained endpoint: **pytorch-inference-2024-10-19-19-22-45-799**
+  Multi instance trained endpoint: ###pytorch-inference-2024-10-19-19-22-45-799###
 ![Screenshot 2024-10-19 at 15-28-40 Endpoints Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/d11aa842-0e8d-4891-861a-cd95bce2094f)
