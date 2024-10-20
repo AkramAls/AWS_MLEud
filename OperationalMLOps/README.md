@@ -78,6 +78,8 @@ AWS IAM Homepage with roles:
 ![Screenshot 2024-10-20 at 00-42-37 Dashboard IAM Global](https://github.com/user-attachments/assets/790d7054-d97c-4601-9cbf-ac604ea10407)
 ![Screenshot 2024-10-20 at 00-31-03 Roles IAM Global](https://github.com/user-attachments/assets/83f16221-82fa-4dd4-8124-08e252dc2c80)
 
+The SageMakerFullAccess policy was the simplest choice, but can pose security risks. It is advisable to carefully consider the level of access required for every specific use case, but it will be enough for this project.
+
 Policy added for ```oneinstance``` Lambda Function:
 ![Screenshot 2024-10-20 at 00-30-48 oneinstance-role-tahuisce IAM Global](https://github.com/user-attachments/assets/fb0bc612-bf31-4336-b661-183f4fe50708)
 
