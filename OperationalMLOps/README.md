@@ -134,4 +134,4 @@ This image shows the successful enabling of auto-scaling to the endpoint in Sage
 This image shows the details of the auto scaling showing the endpoint scale out and in between 1 and 3 instances when auto-scaling is triggered.
 ![Screenshot 2024-10-20 at 01-05-05 undefined Endpoints Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/29583e22-7d5e-4b95-82b0-cb7512b35000)
 
-Once the project was completed, there was no longer a need to use up computing resources. To avoid futher cost from AWS servies, the Notebook Instance, Endpoints, Lambda Functions, and EC2 Instance were all deleted. For the project needs it was no longer need to have these up and running. This will need to be done to avoid billing from AWS Servies.
+Once the project was completed, there was no longer a need to use up computing resources. To avoid futher cost from AWS servies, the Notebook Instance, Endpoints, Lambda Functions, and EC2 Instance were all deleted. For the project needs it was no longer need to have these up and running. This will need to be done to avoid billing from AWS services.
