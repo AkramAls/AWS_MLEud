@@ -2,7 +2,7 @@
 
 ## Setting up Notebook Instance in AWS SageMaker
 
-I'm using the default SageMaker instance ml.t3.medium when Notebook Instances are created for my notebook as I will be only running the notebook only when working on the project, and I do not need a CPU or RAM more than that judging from the file size that is provided and the goals for the project. I was having issues getting my code to store the downloaded data to the S3 bucket, because I was doing it though Jupyter and not Jupyterlabs. From my perpective, it was simpler to use Jupyterlabs as the layout was similar to SageMaker Studio.
+I'm using the default SageMaker instance ml.t3.medium when Notebook Instances are created for my notebook as I will be only running the notebook only when working on the project, and I do not need a CPU or RAM more than that judging from the file size that is provided and the goals for the project. I was having issues getting my code to store the downloaded data to the S3 bucket, because I was doing it through Jupyter and not Jupyterlabs. From my perspective, it was simpler to use Jupyterlabs as the layout was similar to SageMaker Studio.
 
 ![Screenshot 2024-10-18 at 14-09-26 Notebook instances Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/8ba902f7-e32b-45a3-8fd0-f1059941d7c6)
 
@@ -49,7 +49,7 @@ Now we can run our script to train the model
 python solution.py
 ```
 
-I had issues with the CUDA version which refused to run my ```ec2train.py``` code. I tried to ```pip``` some frameworks, but after spending a few hours the soultion was to reinstall PyTorch with the correct CUDA Version by using the two following scripts.
+I had issues with the CUDA version which refused to run my ```ec2train.py``` code. I tried to ```pip``` some frameworks, but after spending a few hours the solution was to reinstall PyTorch with the correct CUDA Version by using the two following scripts.
 
 To uninstall current version of PyTorch:
 
