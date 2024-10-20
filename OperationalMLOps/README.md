@@ -17,4 +17,12 @@ I had some problems with AWS, which required me to start over. This time I was a
   Multi instance trained endpoint: ``pytorch-inference-2024-10-19-19-22-45-799``
 ![Screenshot 2024-10-19 at 15-28-40 Endpoints Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/d11aa842-0e8d-4891-861a-cd95bce2094f)
 
-Deep Learning OSS Nvidia Driver AMI GPU PyTorch 2.3.1 (Amazon Linux 2)
+Deep Learning OSS Nvidia Driver AMI GPU PyTorch 2.3.1 (Amazon Linux 2), but had issues with the CUDA version that runs so I reinstall PyTorch with the correct CUDA Version.
+
+To uninstall current version of PyTorch:
+
+```pip uninstall torch torchvision torchaudio -y```
+
+To reinstall PyTorch with the appropriate CUDA version:
+
+```pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118```
