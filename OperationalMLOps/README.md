@@ -64,10 +64,15 @@ The result of our instance has worked and the path identified:
 The metrics of our EC2 Instance:
 ![Screenshot 2024-10-19 at 23-07-44 Instances EC2 us-east-1](https://github.com/user-attachments/assets/69a9c91c-8440-40dc-b87b-581f6cd02bf9)
 
+##Advantages of EC2 vs Notebook Instances:
+
+EC2 can be customized to meet specific requirements and computing resource needs such as, the number of CPUs used, memory size, GPU support, frameworks needed while optimized for high-performance computing. This can greatly reduce the time to train large machine learning models such a LLM's or BERT.
+
+Notebook instances are easy to set up, as they come pre-configured with popular machine learning frameworks and libraries. They also enable seamless collaboration and integrate well with other AWS services like SageMaker, Lambda, and S3, while offering essential tools for machine learning engineering and operations.
 
 ##Lambda Functions
 
-Since there was a single instance endpoint and multi-instance endpoint, two lambda functions were created ```oneinstance``` and ```multiinstance``` repectively.
+Since there was a single instance endpoint and multi-instance endpoint, two lambda functions were created ```oneinstance``` and ```multiinstance``` repectively. After we create the Lambda Function we can replace the default code with the code located in https://github.com/AWS_MLEud/OperationalMLOps/lamdafunction.py Since a Lambda function will invoke a SageMaker endpoint, we need to grant permission to the Lambda function to access SageMaker. We need to attach a new policy to our Lambda function so that it can access SageMaker by going through AWS IAM.
 
 Test code for the Lambda functions
 ```
