@@ -86,14 +86,15 @@ Policy added for ```oneinstance``` Lambda Function:
 Policy added for ```multiinstance``` Lambda Function:
 ![Screenshot 2024-10-20 at 00-31-13 multiinstance-role-gwjexovn IAM Global](https://github.com/user-attachments/assets/ecf52b2c-7bba-42f6-9e5b-f435972234bb)
 
+In the concole window of the lambda function, the default code is replace with the code from ```https://github.com/AkramAls/AWS_MLEud/edit/main/OperationalMLOps/lambdafunction.py``` and deploy to save the code before proceeding with testing the lambda function.
 
-Test code for the Lambda functions
+Test code for the Lambda functions:
 ```
 {
   "url": "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/20113314/Carolina-Dog-standing-outdoors.jpg"
 }
 ```
-The result of our succsessful testing
+The result of our succsessful testing from both Lambda functions:
 ```
 {
   "statusCode": 200,
@@ -105,4 +106,31 @@ The result of our succsessful testing
   "COntent-Type-In": "<__main__.LambdaContext object at 0x7fdb48dee070>",
   "body": "[[-9.096986770629883, -6.280696392059326, -3.6407206058502197, -1.623978614807129, -4.52439022064209, -5.167107105255127, -2.9249727725982666, -2.8705129623413086, -7.8250532150268555, -1.5073524713516235, -1.95694100856781, -4.514562606811523, -0.32904502749443054, 0.6669425368309021, -5.567157745361328, -3.9589951038360596, -8.504964828491211, -2.159571886062622, -3.857482433319092, 1.6533637046813965, -6.385259628295898, -3.1520373821258545, -8.131010055541992, -7.660277843475342, -6.443761348724365, -10.485486030578613, -5.250019073486328, -6.405547618865967, -8.258563995361328, -0.5176408290863037, -6.320932388305664, -4.718957901000977, -8.405498504638672, -7.335566520690918, -10.348310470581055, -6.9180426597595215, -7.017837047576904, -0.6434236764907837, -2.468348264694214, -8.042801856994629, -3.815700054168701, -2.242116689682007, 2.4018771648406982, -6.806573867797852, -0.5093210339546204, -9.101749420166016, -5.03752326965332, 1.5559486150741577, -5.102183818817139, -2.6244912147521973, -3.957767963409424, -9.652307510375977, -9.861614227294922, -3.170854330062866, -7.720099449157715, -2.309325695037842, -6.728293418884277, -6.596529006958008, -2.1687183380126953, -2.528806447982788, -7.449897289276123, -9.91438102722168, -11.869610786437988, -10.103141784667969, -3.306910276412964, -9.012389183044434, 1.470926284790039, -6.440833568572998, -2.6904876232147217, -1.164985179901123, -0.08895723521709442, -8.30551528930664, -5.315221786499023, -4.130455493927002, -6.954455375671387, -2.6175105571746826, -12.292277336120605, -2.981276512145996, -7.856142520904541, -4.847909450531006, -0.07831322401762009, -8.176919937133789, -1.3720309734344482, -2.4301841259002686, -10.431918144226074, -7.048996448516846, -1.7571501731872559, -10.699981689453125, -4.15992546081543, -2.192228078842163, -11.052444458007812, -7.7356672286987305, -6.310140132904053, -8.986392974853516, -7.390171051025391, -2.5930705070495605, -4.329840183258057, -4.918014049530029, -9.226435661315918, -4.837480545043945, -8.597445487976074, -2.8956727981567383, -6.596631050109863, -3.817946434020996, -6.6799492835998535, -10.64243221282959, -1.2400000095367432, 0.7482686638832092, -3.1552622318267822, 1.8327558040618896, -0.9535248279571533, -2.2177162170410156, -11.003973007202148, -7.895530700683594, -8.497802734375, -2.8575565814971924, -8.964386940002441, -0.7265918850898743, -8.964128494262695, -0.8830686211585999, -4.121635437011719, -5.214657783508301, -4.111880779266357, -7.8513360023498535, -8.24428653717041, -7.469294548034668, -3.6901681423187256, -1.780672311782837, -5.731601715087891, -9.206201553344727, -6.329228401184082, -2.2607877254486084, -4.914355754852295]]"
 }
+
 ```
+This image shows a successful test using the Lambda function ```multiinstance```:
+![Screenshot 2024-10-20 at 00-53-36 Configure provisioned concurrency Version 1 multiinstance Functions Lambda](https://github.com/user-attachments/assets/5f8dac0b-17bd-4df2-92a6-9760f6ef58f2)
+
+This image shows a successful test using the Lambda function ```oneinstance```:
+![Screenshot 2024-10-20 at 00-54-25 Edit concurrency oneinstance Functions Lambda](https://github.com/user-attachments/assets/0bad26dd-5a3f-4f20-8ab5-ee901d726883)
+
+
+## Scaling Lambda Function and Endpoint
+
+By default, a Lambda function can handle only one request at a time.  Using concurrency to enable the process for multiple requests simultaneously. Before setting up concurrency, it is nessacry to create a version in the Configuration tab. Since this project is not sure of how many user will use the model, using provisioned concurrency will be a good choice. Provisioned concurrency initializes a specified number of execution environments, enabling them to respond immediately. Therefore, a higher concurrency level results in reduced latency. Since there was an opportunity, the concurrency was set to 10 so the Lambda function can handle 10 requests at once.
+
+![Screenshot 2024-10-20 at 00-53-36 Configure provisioned concurrency Version 1 multiinstance Functions Lambda](https://github.com/user-attachments/assets/19a9cc13-b08b-4611-bc64-a6c7dfa403c4)
+
+Then go to the deployed endpoint in SageMaker to select the AllTraffic under the ``Endpoint runtime settings`` tab and click ``Configure auto scaling``
+![Screenshot 2024-10-20 at 00-57-44 pytorch-inference-2024-10-19-19-22-45-799 Endpoints Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/151daeae-0019-4398-892b-33e1758be9c9)
+
+The value of 10 was entered in the ``Target value`` which means when our endpoint receives 10 requests simultaneously, auto-scaling will be triggered. The 'Scale In' and 'Scale Out' parameters were both set to 180 seconds, which is the amount of time auto-scaling will wait before increasing or decreasing the number of instances.
+![Screenshot 2024-10-20 at 01-03-16 AllTraffic pytorch-inference-2024-10-19-19-22-45-799 Endpoints Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/77986581-4965-4322-90ac-72e72358b382)
+
+This image shows the successful enabling of auto-scaling to the endpoint in SageMaker:
+![Screenshot 2024-10-20 at 01-04-11 undefined Endpoints Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/5c0e96fe-ac84-4b04-b4a9-a410899d01f2)
+
+This image shows the details of the auto scaling showing the endpoint scale out and in between 1 and 3 instances when auto-scaling is triggered.
+![Screenshot 2024-10-20 at 01-05-05 undefined Endpoints Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/29583e22-7d5e-4b95-82b0-cb7512b35000)
+
+
