@@ -17,7 +17,38 @@ I had some problems with AWS, which required me to start over. This time I was a
   Multi instance trained endpoint: ``pytorch-inference-2024-10-19-19-22-45-799``
 ![Screenshot 2024-10-19 at 15-28-40 Endpoints Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/d11aa842-0e8d-4891-861a-cd95bce2094f)
 
-Deep Learning OSS Nvidia Driver AMI GPU PyTorch 2.3.1 (Amazon Linux 2), but had issues with the CUDA version that runs so I reinstall PyTorch with the correct CUDA Version.
+##EC2 Instance Training
+
+I used Deep Learning OSS Nvidia Driver AMI GPU PyTorch 2.3.1 (Amazon Linux 2), since we are using Pytorch 2 and need Deep Learning with a ```t3.xlarge``` since we do not need too much computing power but enough to train our model. 
+![Screenshot 2024-10-19 at 19-17-02 Instances EC2 us-east-1](https://github.com/user-attachments/assets/4f8d1bf7-3a50-4b67-b549-12aff9b985a2)
+Now that we have our EC2 instance we connect to it. I tried to use my own IP address, but it was not connecting the EC2 instance so I after using a VPC and adjusting the port value it worked and was used for the project. 
+
+We now begin by downloading the dataset to the EC2 by running the following command in the terminal:
+```ruby
+wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zipunzip dogImages.zip
+```
+Once we get the data, we are going to create a directory to save the trained models
+```ruby
+mkdir TrainedModels
+```
+Now, we need to create a Python file and paste the training code into it using ```vim``` to create an empty file to paste our ```ec2train1.py``` code:
+```ruby
+vim solution.py
+```
+Use the following command so that we paste our code into solution.py
+```ruby
+:set paste + Press Enter
+```
+Copy the code located in https://github.com/AWS_MLEud/OperationalMLOps/ec2train1.py and paste into solution.py
+```ruby
+:wq! + Press Enter
+```
+Now we can run our script to train the model
+```ruby
+python solution.py
+```
+
+I had issues with the CUDA version which refused to run my ```ec2train.py``` code. I tried to ```pip``` some frameworks, but after spending a few hours the soultion was to reinstall PyTorch with the correct CUDA Version by using the two following scripts.
 
 To uninstall current version of PyTorch:
 
@@ -26,6 +57,17 @@ To uninstall current version of PyTorch:
 To reinstall PyTorch with the appropriate CUDA version:
 
 ```pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118```
+
+The result of our instance has worked and the path identified:
+![Screenshot 2024-10-19 at 22-53-08 EC2 Instance Connect](https://github.com/user-attachments/assets/ddfbd45c-2c50-4169-9e46-7811eca9befa)
+
+The metrics of our EC2 Instance:
+![Screenshot 2024-10-19 at 23-07-44 Instances EC2 us-east-1](https://github.com/user-attachments/assets/69a9c91c-8440-40dc-b87b-581f6cd02bf9)
+
+
+##Lambda Functions
+
+Since there was a single instance endpoint and multi-instance endpoint, two lambda functions were created ```oneinstance``` and ```multiinstance``` repectively.
 
 Test code for the Lambda functions
 ```
