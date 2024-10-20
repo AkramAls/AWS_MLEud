@@ -73,7 +73,7 @@ Notebook instances are easy to set up, as they come pre-configured with popular 
 
 ## Lambda Functions
 
-Since there was a single instance endpoint and multi-instance endpoint, two lambda functions were created ```oneinstance``` and ```multiinstance``` repectively. After we create the Lambda Function we can replace the default code with the code located in https://github.com/AWS_MLEud/OperationalMLOps/lamdafunction.py Since a Lambda function will invoke a SageMaker endpoint, we need to grant permission to the Lambda function to access SageMaker. We need to attach a new policy to our Lambda function so that it can access SageMaker by going through AWS IAM.
+Since there was a single instance endpoint and multi-instance endpoint, two lambda functions were created ```oneinstance``` and ```multiinstance``` respectively. After we create the Lambda Function we can replace the default code with the code located in https://github.com/AWS_MLEud/OperationalMLOps/lamdafunction.py Since a Lambda function will invoke a SageMaker endpoint, we need to grant permission to the Lambda function to access SageMaker. We need to attach a new policy to our Lambda function so that it can access SageMaker by going through AWS IAM.
 
 AWS IAM Homepage with roles:
 ![Screenshot 2024-10-20 at 00-42-37 Dashboard IAM Global](https://github.com/user-attachments/assets/790d7054-d97c-4601-9cbf-ac604ea10407)
