@@ -17,7 +17,7 @@ I had some problems with AWS, which required me to start over. This time I was a
   Multi instance trained endpoint: ``pytorch-inference-2024-10-19-19-22-45-799``
 ![Screenshot 2024-10-19 at 15-28-40 Endpoints Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/d11aa842-0e8d-4891-861a-cd95bce2094f)
 
-##EC2 Instance Training
+## EC2 Instance Training
 
 I used Deep Learning OSS Nvidia Driver AMI GPU PyTorch 2.3.1 (Amazon Linux 2), since we are using Pytorch 2 and need Deep Learning with a ```t3.xlarge``` since we do not need too much computing power but enough to train our model. 
 ![Screenshot 2024-10-19 at 19-17-02 Instances EC2 us-east-1](https://github.com/user-attachments/assets/4f8d1bf7-3a50-4b67-b549-12aff9b985a2)
@@ -70,7 +70,7 @@ EC2 can be customized to meet specific requirements and computing resource needs
 
 Notebook instances are easy to set up, as they come pre-configured with popular machine learning frameworks and libraries. They also enable seamless collaboration and integrate well with other AWS services like SageMaker, Lambda, and S3, while offering essential tools for machine learning engineering and operations.
 
-##Lambda Functions
+## Lambda Functions
 
 Since there was a single instance endpoint and multi-instance endpoint, two lambda functions were created ```oneinstance``` and ```multiinstance``` repectively. After we create the Lambda Function we can replace the default code with the code located in https://github.com/AWS_MLEud/OperationalMLOps/lamdafunction.py Since a Lambda function will invoke a SageMaker endpoint, we need to grant permission to the Lambda function to access SageMaker. We need to attach a new policy to our Lambda function so that it can access SageMaker by going through AWS IAM.
 
