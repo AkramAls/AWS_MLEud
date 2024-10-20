@@ -6,7 +6,7 @@ I'm using the default SageMaker instance ml.t3.medium when Notebook Instances ar
 
 ![Screenshot 2024-10-18 at 14-09-26 Notebook instances Amazon SageMaker us-east-1](https://github.com/user-attachments/assets/8ba902f7-e32b-45a3-8fd0-f1059941d7c6)
 
-S3 Bucket with the dataset
+S3 Bucket with the DogImage dataset:
 ![Screenshot 2024-10-19 at 13-33-48 opmlimagebucket - S3 bucket S3 us-east-1](https://github.com/user-attachments/assets/5a37ff41-6f7d-4933-b6e7-8cbca4d3ce75)
 
 For tuning I used ml.m5.2xlarge for the greater processing power so that the tuning job and training jobs could be completed more quickly and to avoid memory issues I had experienced when working with this dataset in a previous project. For training instances, I set ``instance_count=4``and kept most parameters the same.
